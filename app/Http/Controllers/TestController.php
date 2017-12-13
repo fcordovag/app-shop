@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class TestController extends Controller
 {
     //
     public function welcome(){
-    	/*$a = 5;
-    	$b = 10;
-    	$c = $a+$b;
-    	return "el valor de la suma es: $c";
-    	*/
-    	return view('welcome');
+    	$products = Product::paginate(9);
+    	return view('welcome')->with(compact('products'));
     }
 }
