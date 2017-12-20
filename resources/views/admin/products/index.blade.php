@@ -40,7 +40,7 @@
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <a type="button" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs"><i class="fa fa-info"></i>
+                                <a type="button" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs" href="{{ url('/products/'.$product->id) }}" target="_blank"><i class="fa fa-info"></i>
                                 </a>
                                 <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" rel="tooltip" title="Editar Producto" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i>
                                 </a>

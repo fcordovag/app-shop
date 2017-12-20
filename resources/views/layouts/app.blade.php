@@ -54,6 +54,9 @@
                                     <li>
                                         <a href="{{ url('/admin/products') }}">Gestionar Producto</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/admin/categories') }}">Gestionar Categorias</a>
+                                    </li>
                                     @endif
                                     <li>
                                         <a href="{{ route('logout') }}"

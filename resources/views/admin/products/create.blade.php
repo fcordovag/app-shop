@@ -41,16 +41,33 @@
                             </div>
                         </div> 
                         </div>      
-                       
-                        <div class="form-group label-floating">
-                            <label class="control-label">Descripcion Corta</label>
-                            <input type="text" class="form-control" name="description" value="{{ old('description') }}">
+                        <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group label-floating">
+                                <label class ="control-label">Descripcion Corta</label>
+                                <input type="text" class="form-control" name="description" value="{{ old('description') }}">
+                            </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Categoria del producto</label>
+                                <select name="category_id"  class="form-control">
+                                    <option value="0">General</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div> 
+                        </div>  
+                        
                         
                         <textarea class="form-control" placeholder="Descripcion extensa del producto" rows="2" name="long_description"> {{ old('long_description') }}
                         </textarea>
-                        <button class="btn btn-primary">Registra Producto</button>
-                        <a href="{{ url('/admin/products') }}" class="btn btn-danger">Cancelar</a>
+                        <div class="text-center">
+                            <button class="btn btn-primary">Registra Producto</button>
+                            <a href="{{ url('/admin/products') }}" class="btn btn-danger">Cancelar</a>
+                        </div>
                     </form>
                 </div>
             </div>
