@@ -26,6 +26,8 @@ Auth::routes();
 
 Route::get('/search', 'SearchController@show')->name('home');
 
+Route::get('/products/json','SearchController@data');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}', 'ProductController@show'); // formulario de regitro
 Route::post('/cart', 'CartDetailController@store');

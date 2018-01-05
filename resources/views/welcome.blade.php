@@ -86,7 +86,7 @@
                 <div class="section text-center">
                     <h2 class="title">Visita nuestra categorias</h2>
                     <form action="{{ url('/search') }}" method="get" class="form-inline">
-                        <input type="text" placeholder="que producto buscas ?" class="form-control" name="query">
+                        <input type="text" placeholder="que producto buscas ?" class="form-control" name="query" id="search">
                         <button class="btn btn-primary btn-round" type="submit">
                             <i class="material-icons">search</i>
                         </button>
@@ -154,4 +154,29 @@
         @include('includes.footer')
 
     </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('/js/typeahead.bundle.min.js') }}"></script>
+    <script>
+        $(function ()
+        {
+            //
+        var products = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+          // `states` is an array of state names defined in "The Basics"
+          prefetch: '{{ url("/products/json") }}'
+        });
+            //inicializamos typehead sobre nuestro inpurt de busqueda
+        $('#search').typeahead({
+          hint: true,
+          highlight: true,
+          minLength: 1
+        },
+        {
+          name: 'products',
+          source: products
+        });
+        })
+    </script>
 @endsection
